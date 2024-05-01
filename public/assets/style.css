@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Raleway:wght@400;500;600;700;800&display=swap');
+*{
+  margin:0;
+  padding:0;
+  font-family:'Raleway', serif;
+}
+
+#container{
+  margin: 50px auto;
+  /* height:100vh; */
+  /* width:100vw; */
+  /* background-color:#F2EBDD; */
+  display:flex;
+  flex-wrap: wrap;
+  align-items:center;
+  justify-content:center;
+}
+
+.card-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+.btn {
+  width: 30px;
+  margin: 15px;
+}
+.card{
+  margin:0 30px;
+  height:200px;
+  width:120px;
+  background-color:#fff;
+  border:3px solid black;
+  box-shadow:0 0 0 7px #fff,0 0  8px 5px #000;
+}
+.card-image{
+  position:relative;
+  width:100%;
+  border-bottom:3px solid #000;
+  z-index:1;
+}
+.card-image>img{
+  position:absolute;
+  z-index:2;
+  height:100%;
+}
+.card-image{
+  height:55%;
+  background-color:#FFDD33;
+}
+.card-image>img{
+  width:90%;
+  height:90%;
+  left:50%;
+  transform:translateX(-50%);
+  margin-top: 5px;
+}
+
+h3{
+  font-family:'Open Sans Condensed', sans-serif;
+  color:#59C887;
+  /* letter-spacing:-5px;  */
+  /* line-height: 50px; */
+  text-align:center;
+  margin-top:10px;
+  font-size: 1rem;
+}
+p{
+  /* font-size:2rem; */
+  /* line-height:30px; */
+  font-size: 10px;
+  font-weight:500;
+  text-align:center;
+}
+.card-text{
+  height:45%;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.card-text>div{
+  display:flex;
+  justify-content:space-between;
+}
+.card-text>div>div:first-child{
+  display:flex;
+  align-items:center;
+  padding:0 20px;
+}
+.card-text>div>div:first-child>span:first-child{
+ font-size:4rem;
+  font-weight:800;
+}
+.card-text>div>div:first-child>span:last-child{
+  font-size:2rem;
+  font-weight:600;
+}
+.card-text>div>div:last-child{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  border:3px solid black;
+  border-right:none;
+  border-bottom:none;
+  padding:10px 20px;
+}
+.card-text>div>div:last-child>span:first-child{
+  font-size:2rem;
+  font-weight:bold;
+}
+.card-text>div>div:last-child>span:last-child{
+  font-weight:500;
+}
