@@ -21,6 +21,7 @@ app.use(express.static('public'));
 
 
 const Pokemon = require ('./models/Pokemon');
+const Dbz = require ('./models/Dbz')
 
 app.get('/', function (req, res, next) {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
@@ -41,12 +42,31 @@ app.post('/cartes', function (req, res, next) {
   .then(() => res.redirect('/'))
   .catch(error => res.status(400).json({ error }));
 })
+/* --------------------------- create Dbz card -------------------------- */
+app.post('/cartes/dbz', function (req, res, next) {
+  const { nom, type, imageSrc } = req.body;
+  const newDbz = new Dbz({
+    nom: nom,
+    type: type,
+    imageSrc: imageSrc
+  })
+
+  newDbz.save()
+  .then(() => res.redirect('/'))
+  .catch(error => res.status(400).json({ error }));
+})
 
 /* -------------------------- get all Pokemon cards ------------------------- */
 app.get('/cartes', function (req, res, next) {
   Pokemon.find()
   .then(pokemons => res.status(200).json(pokemons))
   .catch(error => res.status(400).json({ error }));})
+/* -------------------------- get all Dbz cards ------------------------- */
+app.get('/cartes/dbz', function (req, res, next) {
+  Dbz.find()
+  .then(dbzcard => res.status(200).json(dbzcard))
+  .catch(error => res.status(400).json({ error }));})
+
 
 /* -------------------------- get one Pkemon by id -------------------------- */
 app.get('/cartes/:id', function (req, res, next) {
@@ -56,6 +76,16 @@ app.get('/cartes/:id', function (req, res, next) {
       return res.status(404).json({ message: "Aucun Pokemon avec cet id"})
     }
     res.status(200).json(pokemon)
+  })
+  .catch(error => res.status(400).json({ error }));})
+/* -------------------------- get one dbz by id -------------------------- */
+app.get('/cartes/dbz/:id', function (req, res, next) {
+  Dbz.findOne({ _id: req.params.id })
+  .then(dbzcard => {
+    if(!dbzcard) {
+      return res.status(404).json({ message: "Aucun dbz avec cet id"})
+    }
+    res.status(200).json(dbzcard)
   })
   .catch(error => res.status(400).json({ error }));})
 

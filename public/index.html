@@ -33,6 +33,19 @@
     
           <button type="submit">Ajouter</button>
         </form>
+        <h2>Ajouter une nouvelle carte Dbz</h2>
+        <form action="/cartes/dbz" name="addDbz" method="POST">
+          <label for="nom">Nom</label>
+          <input type="text" id="nom" name="nom" required/>
+    
+          <label for="type">Type</label>
+          <input type="text" id="type" name="type" required/>
+    
+          <label for="imageSrc">Image URL</label>
+          <input type="text" id="imageSrc" name="imageSrc" required/>
+    
+          <button type="submit">Ajouter</button>
+        </form>
     
         <h2>Afficher une carte Pokemon spécifique</h2>
         <form action="/cartes" name="onePoke" method="GET" id="onePoke">
@@ -71,6 +84,11 @@
           
         </div>
 
+        <h2>Liste des cartes Dragon-ball existantes</h2>
+
+        <div id="dbz_container">
+
+        </div>
         <div class="row text-center" id="card"></div>
         <div class="error-message"></div>
       </div>
